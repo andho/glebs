@@ -1,0 +1,19 @@
+---
+version: 1.2.4
+title: authorize url
+---
+Ok([
+  #("client_id", "client_id"),
+  #(
+    "redirect_uri",
+    "https://example.com/redirect",
+  ),
+  #("scope", "scope"),
+  #("response_type", "code"),
+  #("state", "1234567890"),
+  #("code_challenge_method", "S256"),
+  #(
+    "code_challenge",
+    "T0v8iR9XsxtRjI7zLDUgwYssUCE2UfpI1Dovzfgbp6Y",
+  ),
+])

@@ -1,0 +1,7 @@
+---
+version: 1.2.4
+title: hash
+file: ./test/crypto_test.gleam
+test_name: hash_test
+---
+"LPJNul+wow4m6DsqxbninhsWHlwfp0JecwQzYpOLmCQ"

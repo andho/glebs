@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    ports:
+      - "9100:1234"
+    volumes:
+      - .:/app
+    command: gleam run -m lustre/dev start

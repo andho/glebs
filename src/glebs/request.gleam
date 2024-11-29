@@ -1,6 +1,7 @@
 import decode/zero
 import gleam/fetch
 import gleam/fetch/form_data
+import gleam/http
 import gleam/http/request
 import gleam/javascript/promise
 import gleam/result
@@ -34,7 +35,6 @@ pub fn create_authorization_request_url(
     #("redirect_uri", config.redirect_uri),
     #("scope", config.scope),
     #("response_type", "code"),
-    #("state", "1234567890"),
     #("code_challenge_method", "S256"),
     #("code_challenge", code_challenge),
   ]
@@ -95,6 +95,7 @@ pub fn get_access_token(
         Ok(req) -> {
           req
           |> request.set_body(req_body)
+          |> request.set_method(http.Post)
           |> fetch.send_form_data
           |> promise.try_await(fetch.read_json_body)
           |> promise.map(fn(res_promise) {

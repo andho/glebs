@@ -1,6 +1,6 @@
 name = "glebs"
 target = "javascript"
-version = "0.1.0"
+version = "0.1.1"
 
 description = "An OAuth PKCE helper for Gleam in Browser. You can easily use this with lustre."
 licences = ["Apache-2.0"]

@@ -1,6 +1,6 @@
 name = "glebs"
 target = "javascript"
-version = "1.0.1"
+version = "1.0.2"
 
 description = "An OAuth PKCE helper for Gleam in Browser. You can easily use this with lustre."
 licences = ["Apache-2.0"]
@@ -21,3 +21,8 @@ gleam_json = ">= 2.3.0 and < 3.0.0"
 gleeunit = ">= 1.0.0 and < 2.0.0"
 birdie = ">= 1.2.4 and < 2.0.0"
 pprint = ">= 1.0.4 and < 2.0.0"
+
+[documentation]
+pages = [
+  { title = "Glebs with lustre", path = "docs/lustre.html", source = "./pages/docs/lustre.md" },
+]

@@ -1,4 +1,4 @@
-import decode/zero
+import gleam/dynamic/decode
 import gleam/fetch
 import gleam/fetch/form_data
 import gleam/http
@@ -51,17 +51,16 @@ pub fn create_authorization_request_url(
   |> promise.resolve
 }
 
-fn token_resp_decoder() {
-  use access_token <- zero.field("access_token", zero.string)
-  use refresh_token <- zero.field("refresh_token", zero.string)
-  use token_type <- zero.field("token_type", zero.string)
-  use expires_in <- zero.field("expires_in", zero.int)
-
-  zero.success(glebs.TokenResponse(
+pub fn token_resp_decoder() {
+  use access_token <- decode.field("access_token", decode.string)
+  use token_type <- decode.field("token_type", decode.string)
+  use expires_in <- decode.field("expires_in", decode.int)
+  use refresh_token <- decode.field("refresh_token", decode.string)
+  decode.success(glebs.TokenResponse(
     access_token:,
-    refresh_token:,
     token_type:,
     expires_in:,
+    refresh_token:,
   ))
 }
 
@@ -113,7 +112,7 @@ pub fn get_access_token(
   let decoder = token_resp_decoder()
 
   res.body
-  |> zero.run(decoder)
+  |> decode.run(decoder)
   |> result.replace_error("Could not decode access token response")
   |> promise.resolve
 }
